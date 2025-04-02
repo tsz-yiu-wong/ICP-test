@@ -1,0 +1,26 @@
+# Rust相关
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# DFINITY Canister SDK相关
+.dfx/
+/canister_ids.json
+
+# 编辑器相关
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统相关
+.DS_Store
+Thumbs.db
+
+# 编译输出
+/dist/
+/canisters/
+
+# Node模块（如果有前端）
+/node_modules/
+/package-lock.json 
