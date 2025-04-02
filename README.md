@@ -1,94 +1,94 @@
-# 计数器 Canister 项目
+# Counter Canister Project
 
-这是一个简单的Internet Computer (ICP) canister项目，实现了一个计数器功能。
+This is a simple Internet Computer (ICP) canister project that implements a counter functionality.
 
-## 功能
+## Features
 
-- 初始化计数器为0
-- 递增计数器
-- 获取当前计数值
+- Initialize counter to 0
+- Increment counter
+- Get current count value
 
-## 项目结构
+## Project Structure
 
-- `src/lib.rs`: canister的主要代码实现
-- `Cargo.toml`: Rust项目依赖配置
-- `dfx.json`: Internet Computer部署配置
-- `deploy.sh`: 部署脚本
+- `src/lib.rs`: Main code implementation of the canister
+- `Cargo.toml`: Rust project dependency configuration
+- `dfx.json`: Internet Computer deployment configuration
+- `deploy.sh`: Deployment script
 
-## 前提条件
+## Prerequisites
 
-请确保已安装以下工具：
+Please ensure you have the following tools installed:
 
-1. Rust和Cargo (https://www.rust-lang.org/tools/install)
+1. Rust and Cargo (https://www.rust-lang.org/tools/install)
 2. Internet Computer SDK (DFX) (https://internetcomputer.org/docs/current/developer-docs/setup/install/)
 
 ```bash
 sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
 ```
 
-## 部署步骤
+## Deployment Steps
 
-### 本地部署
+### Local Deployment
 
-1. 赋予部署脚本执行权限：
+1. Grant execution permission to the deployment script:
 
 ```bash
 chmod +x deploy.sh
 ```
 
-2. 运行部署脚本：
+2. Run the deployment script:
 
 ```bash
 ./deploy.sh
 ```
 
-这将启动本地网络，构建并部署canister，并显示canister ID和访问URL。
+This will start a local network, build and deploy the canister, and display the canister ID and access URL.
 
-### 手动部署
+### Manual Deployment
 
-如果想手动部署，请按照以下步骤操作：
+If you want to deploy manually, follow these steps:
 
-1. 启动本地Internet Computer网络：
+1. Start the local Internet Computer network:
 
 ```bash
 dfx start --background --clean
 ```
 
-2. 部署canister：
+2. Deploy the canister:
 
 ```bash
 dfx deploy
 ```
 
-3. 与canister交互：
+3. Interact with the canister:
 
 ```bash
-# 获取当前计数
+# Get the current count
 dfx canister call my_canister get_count
 
-# 递增计数
+# Increment the count
 dfx canister call my_canister increment
 ```
 
-### 部署到主网
+### Deployment to Mainnet
 
-要部署到ICP主网，请确保您有足够的cycles：
+To deploy to the ICP mainnet, make sure you have enough cycles:
 
-1. 配置身份和钱包：
+1. Configure identity and wallet:
 
 ```bash
 dfx identity use default
 dfx identity get-wallet
 ```
 
-2. 部署到主网：
+2. Deploy to mainnet:
 
 ```bash
 dfx deploy --network ic
 ```
 
-## Candid接口
+## Candid Interface
 
-您可以通过Candid UI来与canister交互。本地部署后，访问：
+You can interact with the canister through the Candid UI. After local deployment, visit:
 
 http://localhost:8000/?canisterId=$(dfx canister id __Candid_UI) 
